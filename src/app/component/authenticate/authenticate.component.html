@@ -1,0 +1,37 @@
+<div class="my-5">
+    <div class="container ">
+      <div class="row ">
+          <div class="col-lg-4 col-1"></div>
+          <div class="col-lg-4 col-10 description styleForm roundedTop" style="text-align: center">
+            <h1 class="mt-3" style="font-size: 30px;">Ingresar</h1>
+            <p>Digita tu usuario y contraseña</p>
+            <p> {{postData}}</p>
+          </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4 col-1"></div>
+        <div class="col-lg-4 col-10 styleForm roundedBottom">
+          <form action="" role="form">
+            <div class="form-group row">
+              <div class="col-lg-1"></div>
+              <div class="col-lg-10">
+                <input class="form-control mt-2" type="text" id="user" placeholder = "Usuario..." #user>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-lg-1 "></div>
+              <div class="col-lg-10">
+                <input class="form-control my-1" type="password" id="pass" placeholder = "Contaseña..." #pass>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-lg-3"></div>
+              <div class="col-lg-6 col-sm-12">
+                <button type="submit" class="btn btn-success btn-block" (click)="userAuthenticate(user.value,pass.value)">Ingresar</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>

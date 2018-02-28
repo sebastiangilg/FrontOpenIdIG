@@ -1,0 +1,18 @@
+
+.styleForm{
+    background: rgb(14, 143, 230)
+}
+
+.description{
+    color: white
+}
+
+.roundedBottom{
+    border-bottom-left-radius: 15px 15px;
+    border-bottom-right-radius: 15px 15px;
+}
+
+.roundedTop{
+    border-top-right-radius: 15px 15px;
+    border-top-left-radius: 15px 15px;
+}
