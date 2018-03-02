@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AppRegisterService } from '../../services/app-register/app-register.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-register-app',
@@ -10,7 +11,10 @@ import { AppRegisterService } from '../../services/app-register/app-register.ser
 export class RegisterAppComponent {
 
   postData: string;
-  constructor(private appRegisterService: AppRegisterService) {}
+  constructor(
+    private appRegisterService: AppRegisterService,
+    private route: ActivatedRoute
+  ) {}
 
   AppRegister(App: string, Desc: string, Owner1: string, Owner2: string) {
     const parms = JSON.stringify({
