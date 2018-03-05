@@ -10,32 +10,28 @@ import { Router } from '@angular/router';
 
 export class AuthenticateComponent {
 
-  postData: number;
-  public userRequest: string;
-  constructor(private userAuthenticateServise: UserAuthenticateServiceService,
-              private router: Router ) {  }
+  userRequest: string;
+  constructor(
+    private userAuthenticateServise: UserAuthenticateServiceService,
+    private router: Router
+  ) {}
 
   userAuthenticate(user: string, pass: string) {
+
     this.userRequest = JSON.stringify({
       Usuario : user,
       Contrasena : pass
     });
 
-    //  this.userAuthenticateServise.Auth(this.userRequest);
     this.userAuthenticateServise.UserAuthenticatePost(this.userRequest)
-      .then(mensage => {this.postData = mensage; })
-      .then(() => {
-        if (this.postData === 100) {
-          this.router.navigate(['/register-app']);
-        } else {
-          this.router.navigate(['/authenticate']);
-        }
-        alert('data Auth' + this.postData);
-        });
-  }
-
-  validate(): boolean {
-    alert('data Validate' + this.postData);
-    return this.postData === 100 ? true : false;
+    .subscribe(
+      response => {
+        alert(response.message);
+        localStorage.setItem('transaction', response.transactionMade);
+        this.router.navigate(['/register-app']);
+      },
+      error => alert(error)
+    );
   }
 }
+

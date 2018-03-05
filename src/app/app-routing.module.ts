@@ -1,4 +1,4 @@
-import { RouterModule, Routes, RouterOutlet} from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { AuthenticateComponent } from './component/authenticate/authenticate.component';
 import { RegisterAppComponent } from './component/register-app/register-app.component';
 import { AuthorizatedGuard } from './app.guard';

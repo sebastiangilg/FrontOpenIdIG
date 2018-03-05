@@ -23,7 +23,7 @@ import { AppRegisterService } from './services/app-register/app-register.service
     HttpModule,
     Routing
   ],
-  providers: [UserAuthenticateServiceService, AppRegisterService, AuthorizatedGuard],
+  providers: [UserAuthenticateServiceService, AppRegisterService, AuthorizatedGuard, AuthenticateComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

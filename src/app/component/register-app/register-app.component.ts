@@ -11,19 +11,25 @@ import { ActivatedRoute } from '@angular/router';
 export class RegisterAppComponent {
 
   postData: string;
+  appRequest: string;
   constructor(
     private appRegisterService: AppRegisterService,
     private route: ActivatedRoute
   ) {}
 
   AppRegister(App: string, Desc: string, Owner1: string, Owner2: string) {
-    const parms = JSON.stringify({
+    const appRequest = JSON.stringify({
       AppName : App,
       DescApp : Desc,
       Owner: [ Owner1, Owner2 ]
     });
 
-    this.appRegisterService.AppRegisterPost(parms)
-    .then(mensage => {this.postData = mensage; }).catch(mensage => {this.postData = mensage; });
+    this.appRegisterService.AppRegisterPost(this.appRequest)
+    .subscribe(
+      response => {
+        this.postData = response.message;
+      },
+      error => alert(error)
+    );
   }
 }
